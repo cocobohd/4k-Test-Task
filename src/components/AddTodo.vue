@@ -4,7 +4,7 @@
       Add todo
     </h1>
     <input 
-      v-model="todo.title"
+      v-model.trim="todo.title"
       class="addtodo--input" 
       placeholder="Todo name" 
     />

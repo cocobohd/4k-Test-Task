@@ -71,3 +71,10 @@ input:checked + .slider:before {
 .slider.round:before {
   border-radius: 50%;
 }
+
+.item--message {
+  color: cadetblue;
+  margin-top: 50px;
+  font-weight: 400;
+  text-align: center;
+}

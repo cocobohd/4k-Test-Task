@@ -11,7 +11,13 @@
 
       <div class="main--components">
         <AddTodo @create="addTodo"/>
-        <MyTodos v-bind:todos="todos"/>
+        <MyTodos 
+          :todos="todos"
+          @change="changeComplete" 
+          @all="all"
+          @done="sortDone"
+          @notDone="sortNotDone"
+        />
       </div>
 
     </div>
@@ -28,7 +34,10 @@
     },
     data() {
       return {
-        todos: []
+        todos: [],
+        allTodos: [],
+        doneTodos: [],
+        notDoneTodos: []
       }
     },
     methods: {
@@ -42,9 +51,27 @@
           const data = await response.json()
           data.sort((a,b) => a.completed - b.completed)
           this.todos = data
+          this.allTodos = data
         }catch {
           console.log("Error")
         }
+      },
+      all() {
+        this.todos = this.allTodos
+        this.todos.sort((a,b) => a.completed - b.completed)
+      },
+      changeComplete() {
+        this.todos.sort((a,b) => a.completed - b.completed)
+      },
+      sortDone() {
+        this.doneTodos = this.allTodos.filter(t => t.completed === true)
+        this.todos = this.allTodos
+        this.todos = this.doneTodos
+      },
+      sortNotDone() {
+        this.notDoneTodos = this.allTodos.filter(t => t.completed === false)
+        this.todos = this.allTodos
+        this.todos = this.notDoneTodos
       }
     },
     mounted() {

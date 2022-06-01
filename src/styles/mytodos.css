@@ -28,8 +28,24 @@
 }
 
 .mytodos--nav {
-  font-size: 15px;
   margin-top: 30px;
+}
+
+.mytodos--nav span {
+  font-size: 15px;
+}
+
+.mytodos--nav button {
+  border: none;
+  cursor: pointer;
+  font-size: 15px;
+  padding: 0 5px;
+  transition: 0.3s all;
+}
+
+.mytodos--nav button:hover {
+  font-weight: 700;
+  color: #00B3DB;
 }
 
 .todo--items {

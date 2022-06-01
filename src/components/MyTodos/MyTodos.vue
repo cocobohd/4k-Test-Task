@@ -4,9 +4,15 @@
       <h1 class="mytodos--title">My todos</h1>
       <input class="mytodos--input" placeholder="Search"/>
     </div>
-    <p class="mytodos--nav">All / Done / Not Done</p>
+    <div class="mytodos--nav">
+      <button @click="$emit('all')">All</button>
+      <span>/ </span>
+      <button @click="$emit('done')">Done</button>
+      <span>/ </span>
+      <button @click="$emit('notDone')">Not Done</button>
+    </div>
     <div class="todo--items">
-      <TodoItem :todos = "todos"/>
+      <TodoItem :todos = "todos" @changeComplete="$emit('change')"/>
     </div>
     <div class="footer"></div>
   </div>
@@ -21,6 +27,7 @@
         type: Array,
       }
     },
+    emits: ['change','all','done','notDone'],
     components: {
       TodoItem
     },
