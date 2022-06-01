@@ -78,7 +78,7 @@
       searchTodos(searchTodo){
         this.todos = this.allTodos
         this.search = searchTodo
-        this.todos = this.todos.filter(t => t.title.includes(this.search))
+        this.todos = this.todos.filter(t => t.title.toLowerCase().includes(this.search.toLowerCase()))
         this.todos.sort((a,b) => a.completed - b.completed)
         
         console.log(searchTodo)

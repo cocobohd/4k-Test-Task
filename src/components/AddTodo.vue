@@ -6,9 +6,9 @@
     <input 
       v-model.trim="todo.title"
       class="addtodo--input" 
-      placeholder="Todo name" 
+      placeholder="Todo name"
     />
-    <button class="addtodo--btn active" @click="addTodo()">+</button>
+    <button class="addtodo--btn" @click="addTodo()" :class="{'active' : todo.title.length > 0}">+</button>
   </div>
 </template>
 
