@@ -44,6 +44,7 @@
     },
     methods: {
       addTodo(todo) {
+        this.todos = this.allTodos
         this.todos.unshift(todo)
       },
       async getApi() {
