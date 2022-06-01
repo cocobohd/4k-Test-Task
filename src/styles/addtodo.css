@@ -33,4 +33,12 @@
   right: 45px;
   top: 92px;
   cursor: pointer;
+  transition: all 0.4s;
+  pointer-events: none;
+  opacity: 0.4;
+}
+
+.addtodo--btn.active {
+  pointer-events: all;
+  opacity: 1;
 }

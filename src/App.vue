@@ -17,6 +17,7 @@
           @all="all"
           @done="sortDone"
           @notDone="sortNotDone"
+          @searchTodos="searchTodos"
         />
       </div>
 
@@ -37,7 +38,8 @@
         todos: [],
         allTodos: [],
         doneTodos: [],
-        notDoneTodos: []
+        notDoneTodos: [],
+        search: ""
       }
     },
     methods: {
@@ -72,6 +74,15 @@
         this.notDoneTodos = this.allTodos.filter(t => t.completed === false)
         this.todos = this.allTodos
         this.todos = this.notDoneTodos
+      },
+      searchTodos(searchTodo){
+        this.todos = this.allTodos
+        this.search = searchTodo
+        this.todos = this.todos.filter(t => t.title.includes(this.search))
+        this.todos.sort((a,b) => a.completed - b.completed)
+        
+        console.log(searchTodo)
+        console.log(this.search)
       }
     },
     mounted() {

@@ -1,5 +1,6 @@
 
 <template>
+<transition-group name="todo--list">
   <div class="item" v-if="todos.length > 0"
     v-for="todo in todos" 
     :key="todo.id">
@@ -18,6 +19,7 @@
   <h2 class="item--message" v-else>
     Oh you dont have any todos...
   </h2>
+</transition-group>
 </template>
 
 <script>

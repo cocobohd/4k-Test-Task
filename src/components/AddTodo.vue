@@ -8,7 +8,7 @@
       class="addtodo--input" 
       placeholder="Todo name" 
     />
-    <button class="addtodo--btn" @click="addTodo()">+</button>
+    <button class="addtodo--btn active" @click="addTodo()">+</button>
   </div>
 </template>
 
