@@ -16,9 +16,9 @@
       <span>/ </span>
       <button @click="$emit('notDone')">Not Done</button>
     </div>
-    <div class="todo--items">
-      <TodoItem :todos = "todos" @changeComplete="$emit('change')"/>
-    </div>
+      <div class="todo--items">
+        <TodoItem :todos = "todos" @changeComplete="$emit('change')"/>
+      </div>
     <div class="footer"></div>
   </div>
 </template>

@@ -44,8 +44,10 @@
     },
     methods: {
       addTodo(todo) {
+        this.allTodos.unshift(todo)
         this.todos = this.allTodos
-        this.todos.unshift(todo)
+        this.todos.sort((a,b) => a.completed - b.completed)
+        localStorage.setItem("Array", JSON.stringify(this.allTodos))
       },
       async getApi() {
         try {
@@ -59,12 +61,16 @@
           console.log("Error")
         }
       },
-      all() {
-        this.todos = this.allTodos
+      sort() {
         this.todos.sort((a,b) => a.completed - b.completed)
       },
+      all() {
+        this.todos = this.allTodos
+        this.sort()
+      },
       changeComplete() {
-        this.todos.sort((a,b) => a.completed - b.completed)
+        this.sort()
+        localStorage.setItem("Array", JSON.stringify(this.allTodos))
       },
       sortDone() {
         this.doneTodos = this.allTodos.filter(t => t.completed === true)
@@ -80,18 +86,23 @@
         this.todos = this.allTodos
         this.search = searchTodo
         this.todos = this.todos.filter(t => t.title.toLowerCase().includes(this.search.toLowerCase()))
-        this.todos.sort((a,b) => a.completed - b.completed)
-        
-        console.log(searchTodo)
-        console.log(this.search)
+        this.sort()
       }
     },
     mounted() {
-      this.getApi()
+      const localArr = JSON.parse(localStorage.getItem("Array"))
+      if (localArr !== null ) {
+        this.allTodos = localArr
+        this.todos = this.allTodos
+      }else {
+        this.getApi()
+      }
+      this.sort()
     }
   }
 </script>
 
 <style>
 @import "./styles/app.css";
+@import "./styles/media.css";
 </style>

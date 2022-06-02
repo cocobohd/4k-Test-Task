@@ -79,6 +79,10 @@ input:checked + .slider:before {
   text-align: center;
 }
 
+.item--title {
+  overflow-wrap: break-word;
+}
+
 .todo--list-item {
   display: inline-block;
   margin-right: 10px;

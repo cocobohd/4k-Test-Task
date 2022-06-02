@@ -1,5 +1,7 @@
 # 4ktesttask
+Todo App on Vue.js with saving to localStorage, search, filter, and add todos
 
+# --------------------------------------------------
 Todo List on Vue.js with getting Array from server 
 
 This template should help get you started developing with Vue 3 in Vite.
